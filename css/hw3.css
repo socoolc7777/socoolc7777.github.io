@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'nanumsquareR';
+    src: url(../font/NanumSquareR.woff2);
+}
+
+body {
+    font-family: 'nanumsquare';
+    background-color: black;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+img {
+    width: 200px;
+}
+
+tr {
+    border-bottom: 1px solid black;
+}
+
+td {
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 40px;
+    text-align: center;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+button {
+    float: right;
+    color: white;
+    background-color: gray;
+    border: 0px;
+    border-radius: 5px;
+    padding: 20px 50px;
+    font-size: 20px;
+    font-family: 'nanumsquare';
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: gainsboro;
+}
+/* hover, focus, active */
+
+.container {
+    width: auto;
+    padding: 10%;
+}
+
+.next {
+    width: auto;
+    margin-top: 50px;
+}
+
+.first-td {
+    width:250px;
+    padding-left: 5%
+}

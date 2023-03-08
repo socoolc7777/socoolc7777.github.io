@@ -1,0 +1,53 @@
+body {
+    background-color: darkgrey;
+    font-family: 'nanumsquare';
+}
+
+div {
+    box-sizing: border-box;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 50%;
+    max-width: 1000px;
+    background-color: whitesmoke;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 300px;
+    padding: 2% 2%;
+    padding-left: 6%;
+    
+}
+
+.content-box {
+    width: auto;
+    padding-top: 30px;
+}
+
+.name-box {
+    float: left;
+    width: 50%;
+    padding-right: 10%;
+    padding-top: 10px;
+}
+
+.submit-button {
+    width: 25%;
+    float: right;
+    margin-top: 15px;
+    margin-right: 10%;
+    border: none;
+    border-radius: 5px;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
