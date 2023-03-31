@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="../css/main.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+
+
+
+    <script>
+
+        var cardnum = 3;
+
+        var products = [
+            { id: 0, price: 70000, title: 'Blossom Dress' },
+            { id: 1, price: 50000, title: 'Springfield Shirt' },
+            { id: 2, price: 60000, title: 'Black Monastery' }
+        ];
+
+        function makecard(array) {
+            array.forEach((item, i) => {
+                $('.row').append(`<div class="col-sm-4">
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${item.title}</h5>
+                <p>가격 : <span>${item.price}</span></p>
+                <button class='buy mb-4'>구매</button>
+              </div>
+        `)
+            })
+        }
+
+        makecard(products);
+
+    </script>
+
+
+    <div class="container mt-3">
+        <button class="btn btn-danger" id="button-more">
+            더보기
+        </button>
+    </div>
+
+    <script>
+
+        var clicknum = 0;
+
+        $('#button-more').on('click', function () {
+            clicknum++;
+            $.get(`https://codingapple1.github.io/js/more${clicknum}.json`).done(function (data) {
+                makecard(data);
+            })
+        })
+
+    </script>
+
+    <div class="container mt-1">
+        <button class="btn btn-danger" id="button-sort-price">
+            가격 순 정렬
+        </button>
+    </div>
+
+    <script>
+
+        $('#button-sort-price').on('click', function () {
+            products.sort(function (a, b) {
+                return a['price'] - b['price'];
+            })
+            $('.row').html('');
+
+            makecard(products);
+        })
+
+
+    </script>
+
+    <div class="container mt-1">
+        <button class="btn btn-danger" id="button-sort-name">
+            다나가 순 정렬
+        </button>
+    </div>
+
+    <script>
+
+        $('#button-sort-name').on('click', function () {
+            products.sort(function (a, b) {
+                if (a.title < b.title) return 1;
+                if (a.title > b.title) return -1;
+                if (a.title === b.title) return 0;
+            })
+            console.log(products);
+            $('.row').html('');
+
+            makecard(products);
+        })
+
+
+    </script>
+
+    <div class="container mt-1">
+        <button class="btn btn-danger" id="button-filter">
+            6만원 이하 상품만 보기
+        </button>
+    </div>
+
+    <script>
+
+        $('#button-filter').on('click', function () {
+            var filteredproducts = products.filter(function (a) {
+                return a.price <= 60000;
+            })
+            console.log(filteredproducts);
+            $('.row').html('');
+
+            makecard(filteredproducts);
+        })
+
+
+    </script>
+
+
+
+    <script src="../js/list_storage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
